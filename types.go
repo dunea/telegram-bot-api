@@ -114,6 +114,9 @@ type Update struct {
 	//
 	// optional
 	ChatJoinRequest *ChatJoinRequest `json:"chat_join_request,omitempty"`
+	//
+	// optional
+	LinkPreviewOptions *LinkPreviewOptions `json:"link_preview_options,omitempty"`
 }
 
 // SentFrom returns the user who sent an update. Can be nil, if Telegram did not provide information
@@ -3327,4 +3330,10 @@ type PreCheckoutQuery struct {
 	//
 	// optional
 	OrderInfo *OrderInfo `json:"order_info,omitempty"`
+}
+
+// LinkPreviewOptions contains a link preview option request.
+type LinkPreviewOptions struct {
+	URL              string `json:"url"`
+	PreferSmallMedia bool   `json:"prefer_small_media"`
 }
