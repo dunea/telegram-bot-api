@@ -114,9 +114,6 @@ type Update struct {
 	//
 	// optional
 	ChatJoinRequest *ChatJoinRequest `json:"chat_join_request,omitempty"`
-	//
-	// optional
-	LinkPreviewOptions *LinkPreviewOptions `json:"link_preview_options,omitempty"`
 }
 
 // SentFrom returns the user who sent an update. Can be nil, if Telegram did not provide information
@@ -637,6 +634,9 @@ type Message struct {
 	//
 	// optional
 	ReplyMarkup *InlineKeyboardMarkup `json:"reply_markup,omitempty"`
+	//
+	// optional
+	LinkPreviewOptions *LinkPreviewOptions `json:"link_preview_options,omitempty"`
 }
 
 // Time converts the message timestamp into a Time.
@@ -1367,6 +1367,12 @@ type InlineKeyboardMarkup struct {
 	// InlineKeyboard array of button rows, each represented by an Array of
 	// InlineKeyboardButton objects
 	InlineKeyboard [][]InlineKeyboardButton `json:"inline_keyboard"`
+}
+
+// LinkPreviewOptions contains a link preview option request.
+type LinkPreviewOptions struct {
+	URL              string `json:"url"`
+	PreferSmallMedia bool   `json:"prefer_small_media"`
 }
 
 // InlineKeyboardButton represents one button of an inline keyboard. You must
@@ -3330,10 +3336,4 @@ type PreCheckoutQuery struct {
 	//
 	// optional
 	OrderInfo *OrderInfo `json:"order_info,omitempty"`
-}
-
-// LinkPreviewOptions contains a link preview option request.
-type LinkPreviewOptions struct {
-	URL              string `json:"url"`
-	PreferSmallMedia bool   `json:"prefer_small_media"`
 }
